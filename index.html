@@ -56,8 +56,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .btn-icon:hover{background:var(--green-200)}
 
 /* AI Grid */
-.ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:1400px;margin:0 auto}
-@media(min-width:1200px){.ai-grid{grid-template-columns:repeat(3,1fr)}}
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1400px;margin:0 auto}
 .ai-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;border:2px solid var(--border);transition:var(--transition)}
 .ai-card:hover{border-color:var(--green-300)}
 .ai-card .card-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--green-50)}
@@ -168,7 +167,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .install-step .content h4{font-size:0.9rem;margin-bottom:4px}
 .install-step .content p{font-size:0.82rem;color:var(--text-secondary);line-height:1.5}
 
-@media(max-width:1024px){.ai-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.ai-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.ai-grid{grid-template-columns:1fr}}
 @media(max-width:700px){
   .navbar{padding:0 10px}
   .navbar .brand{font-size:1rem}
@@ -366,9 +366,9 @@ const DEFAULT_AI_CONFIGS = [
   { name:'DeepSeek', url:'https://chat.deepseek.com', color:'#4f6ef7', enabled:true },
   { name:'智谱清言', url:'https://chatglm.cn', color:'#6c5ce7', enabled:true },
   { name:'Kimi', url:'https://kimi.moonshot.cn', color:'#3b82f6', enabled:true },
-  { name:'通义千问', url:'https://tongyi.aliyun.com', color:'#1677ff', enabled:false },
-  { name:'豆包', url:'https://www.doubao.com/chat', color:'#ff6b35', enabled:false },
-  { name:'元宝', url:'https://yuanbao.tencent.com/chat', color:'#07c160', enabled:false },
+  { name:'通义千问', url:'https://tongyi.aliyun.com', color:'#1677ff', enabled:true },
+  { name:'豆包', url:'https://www.doubao.com/chat', color:'#ff6b35', enabled:true },
+  { name:'元宝', url:'https://yuanbao.tencent.com/chat', color:'#07c160', enabled:true },
 ];
 const PLUGIN_SUPPORTED_SITES = [
   'DeepSeek','智谱清言','Kimi','通义千问','豆包','元宝',
