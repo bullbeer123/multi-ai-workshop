@@ -1,0 +1,35 @@
+{
+  "name": "多AI工坊 Helper",
+  "description": "解除AI网站iframe嵌入限制，配合多AI工坊使用，让你同时操作多个AI对话",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "多AI工坊 - 已启用"
+  },
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://chat.deepseek.com/*",
+    "https://tongyi.aliyun.com/*",
+    "https://kimi.moonshot.cn/*",
+    "https://www.doubao.com/*",
+    "https://yuanbao.tencent.com/*",
+    "https://chatglm.cn/*",
+    "https://xinghuo.xfyun.cn/*",
+    "https://yiyan.baidu.com/*",
+    "https://metaso.cn/*",
+    "https://www.perplexity.ai/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*"
+  ]
+}
