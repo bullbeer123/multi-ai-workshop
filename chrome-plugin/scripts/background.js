@@ -8,6 +8,7 @@ const AI_SITES = [
   { regex: "^https://chat\\\\.openai\\\\.com/", label: "ChatGPT" },
   { regex: "^https://chat\\\\.deepseek\\\\.com/", label: "DeepSeek" },
   { regex: "^https://tongyi\\\\.aliyun\\\\.com/", label: "通义千问" },
+  { regex: "^https://www\\\\.qianwen\\\\.com/", label: "通义千问聊天" },
   { regex: "^https://kimi\\\\.moonshot\\\\.cn/", label: "Kimi" },
   { regex: "^https://www\\\\.doubao\\\\.com/", label: "豆包" },
   { regex: "^https://yuanbao\\\\.tencent\\\\.com/", label: "元宝" },
