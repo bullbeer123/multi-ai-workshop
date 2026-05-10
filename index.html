@@ -217,6 +217,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   <div class="query-bar">
     <textarea id="sharedQuestion" placeholder="输入问题，同时发送给所有 AI ..." rows="1"></textarea>
     <button class="btn btn-primary" onclick="askAll()">📤 发送到全部</button>
+    <button class="btn btn-outline" onclick="openAllTabs()">↗️ 全部新标签</button>
     <button class="btn btn-outline" onclick="clearAllPanels()">🗑️ 清空</button>
   </div>
   <div class="ai-grid" id="aiGrid"></div>
@@ -569,7 +570,8 @@ function setupIframeDetection(idx){const f=document.getElementById(`iframe-${idx
 function refreshIframe(i){const f=document.getElementById(`iframe-${i}`),fb=document.getElementById(`fallback-${i}`),ld=document.getElementById(`loading-${i}`);if(!f)return;fb.classList.remove('show');ld.classList.remove('hide');const s=f.src;f.src='';setTimeout(()=>{f.src=s;setupIframeDetection(i)},200)}
 function openAiInTab(i){const c=aiConfigs.filter(x=>x.enabled)[i];if(c)window.open(c.url,'_blank')}
 function copyToPanel(i){const q=document.getElementById('sharedQuestion').value.trim();if(!q){showToast('请先在顶部输入问题');return}const inp=document.getElementById(`panel-input-${i}`);if(inp){inp.value=q;inp.focus();showToast(`已复制到 ${aiConfigs.filter(c=>c.enabled)[i].name}`)}}
-function askAll(){const q=document.getElementById('sharedQuestion').value.trim();if(!q){showToast('请输入问题');return}navigator.clipboard.writeText(q).catch(()=>{});showToast('已复制到剪贴板 ✅');aiConfigs.filter(c=>c.enabled).forEach(c=>window.open(c.url,'_blank'));aiConfigs.filter(c=>c.enabled).forEach((_,i)=>{const inp=document.getElementById(`panel-input-${i}`);if(inp)inp.value=q})}
+function askAll(){const q=document.getElementById('sharedQuestion').value.trim();if(!q){showToast('请输入问题');return}navigator.clipboard.writeText(q).catch(()=>{});aiConfigs.filter(c=>c.enabled).forEach((_,i)=>{const inp=document.getElementById(`panel-input-${i}`);if(inp)inp.value=q});showToast('✅ 已填入各面板，到右侧粘贴提问')}
+function openAllTabs(){aiConfigs.filter(c=>c.enabled).forEach(c=>window.open(c.url,'_blank'));showToast(`已打开 ${aiConfigs.filter(c=>c.enabled).length} 个 AI 网站`)}
 function clearAllPanels(){document.getElementById('sharedQuestion').value='';document.querySelectorAll('.ai-card .card-foot input').forEach(i=>i.value='');showToast('已清空')}
 
 // ============================================================
